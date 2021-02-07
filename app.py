@@ -9,11 +9,13 @@ import uuid
 
 
 BUCKET = os.environ['BUCKET']
-uname = str(uuid.uuid4())
+
 s3_client = boto3.client('s3')
 
 
 def handler(event, context):
+    
+    uname = str(uuid.uuid4())
     
     if event['httpMethod'] == "POST" :
 
