@@ -40,6 +40,9 @@ def handler(event, context):
         elif verify_image_format == 'jpg' or verify_image_format == 'jpeg':
             dec = base64.b64decode(image)
             s3_client.put_object(Bucket=BUCKET, Key=uname + '.jpg', Body=dec)
+        
+        else:
+            print("Not supported format.")
     
     return {
         "statusCode": 200,
