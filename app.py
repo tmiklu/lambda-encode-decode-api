@@ -32,16 +32,8 @@ def handler(event, context):
         
         verify_image_format = imghdr.what('/tmp/verify.png');
         
-        if verify_image_format == 'png':
-            dec = base64.b64decode(image)
-            s3_client.put_object(Bucket=BUCKET, Key=uname + '.png', Body=dec)
-            
-        elif verify_image_format == 'jpg' or verify_image_format == 'jpeg':
-            dec = base64.b64decode(image)
-            s3_client.put_object(Bucket=BUCKET, Key=uname + '.jpg', Body=dec)
-        
-        else:
-            print('Not supported format.')
+        dec = base64.b64decode(image)
+        s3_client.put_object(Bucket=BUCKET, Key=uname + '.png', Body=dec)
     
     return {
         "statusCode": 200,
