@@ -1,1 +1,1 @@
-# lambda-encode-decode-api
+# Encode and Decode image during api request 
