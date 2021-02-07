@@ -30,10 +30,10 @@ def handler(event, context):
         image_decode.write(base64.b64decode(byte))
         image_decode.close
         
-        verify_image_format = imghdr.what('/tmp/verify.png');
+        image_extension = imghdr.what('/tmp/verify.png');
         
         dec = base64.b64decode(image)
-        s3_client.put_object(Bucket=BUCKET, Key=uname + '.png', Body=dec)
+        s3_client.put_object(Bucket=BUCKET, Key=uname + '.' + image_extension, Body=dec)
     
     return {
         "statusCode": 200,
