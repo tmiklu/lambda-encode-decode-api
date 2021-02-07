@@ -35,10 +35,10 @@ def handler(event, context):
         dec = base64.b64decode(image)
         s3_client.put_object(Bucket=BUCKET, Key=uname + '.' + image_extension, Body=dec)
     
-    return {
-        "statusCode": 200,
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "body": json.dumps(event)
-    }
+        return {
+            "statusCode": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": json.dumps(event)
+        }
