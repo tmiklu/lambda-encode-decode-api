@@ -1,7 +1,6 @@
 import base64
 import imghdr
 import json
-import random
 import string
 import os
 import uuid
